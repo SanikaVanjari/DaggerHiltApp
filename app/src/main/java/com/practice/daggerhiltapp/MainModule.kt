@@ -17,6 +17,9 @@ object MainModule {
     @ActivityScoped
     @Provides
     @Named("String2")
-    fun provideTestString2(@ApplicationContext context: Context) = context.getString(R.string.string_to_be_injected)
+    fun provideTestString2(
+        @ApplicationContext context: Context,
+        @Named("String1") testString1: String
+    ) = "${context.getString(R.string.string_to_be_injected)} - $testString1"
 
 }
