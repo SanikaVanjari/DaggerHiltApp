@@ -1,13 +1,18 @@
 package com.practice.daggerhiltapp
 
 import dagger.Module
+import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
 @InstallIn(ApplicationComponent::class)
 object AppModule {
     @Singleton
-    fun provideTestString() = "This is a string we will inject"
+    @Provides
+    @Named("String1")
+    fun provideTestString1() = "This is a string we will inject"
+
 }
